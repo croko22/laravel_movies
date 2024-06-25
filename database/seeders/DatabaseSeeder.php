@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Sci-Fi'],
         ]);
 
-        Movie::factory(10)->create()->each(function ($movie) use ($genres) {
+        Movie::factory(30)->create()->each(function ($movie) use ($genres) {
             // Attach random genres to each movie 
             $randomGenres = $genres->random(rand(1, 3))->pluck('id');
             $movie->genres()->attach($randomGenres);
