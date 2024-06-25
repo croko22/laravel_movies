@@ -1,4 +1,4 @@
-<x-layout>
+<x-guest-layout>
     <h1>LARA MOVIES</h1>
 
     @if (session('success'))
@@ -33,4 +33,4 @@
     </form>
 
     <a href={{ route('register') }} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Register</a>
-</x-layout>
+</x-guest-layout>

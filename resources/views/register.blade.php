@@ -1,4 +1,4 @@
-<x-layout>
+<x-guest-layout>
     <h1>LARA MOVIES</h1>
 
     <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Register</h2>
@@ -32,4 +32,4 @@
         <button type="submit" class="submit">Submit</button>
     </form>
     <a href={{ route('login') }} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Login</a>
-</x-layout>
+</x-guest-layout>
