@@ -1,5 +1,5 @@
 <x-layout>
-    <form class="flex max-w-full mx-auto" method="GET" action="{{ route('movies.index', request()->all()) }}">
+    <form class="flex max-w-full mx-auto mt-5" method="GET" action="{{ route('movies.index', request()->all()) }}">
         <div class="relative w-full">
             <label for="default-search"
                 class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -21,7 +21,7 @@
 
         <div>
             <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                class="inline-flex items-center px-5 py-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 type="button">Genres <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -81,7 +81,7 @@
     @endif
 
 
-    <div class="grid grid-cols-1 gap-3 mt-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div class="grid grid-cols-1 gap-3 mt-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         @foreach ($movies as $movie)
             <div
                 class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
