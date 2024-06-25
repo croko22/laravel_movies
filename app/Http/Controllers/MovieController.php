@@ -24,9 +24,12 @@ class MovieController extends Controller
                 return $query->where('name', 'like', "%$search%");
             })
             ->when($genres, function ($query, $genres) {
-                return $query->whereHas('genres', function ($query) use ($genres) {
-                    $query->whereIn('genres.id', $genres);
-                });
+                foreach ($genres as $genre) {
+                    $query->whereHas('genres', function ($query) use ($genre) {
+                        $query->where('genres.id', $genre);
+                    });
+                }
+                return $query;
             })
             ->when($director, function ($query, $director) {
                 return $query->whereHas('director', function ($query) use ($director) {
