@@ -2,37 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-
-        $data = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:6',
-        ]);
-        dd($data);
-        User::create([
+        $data = $request->validated();
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        return back()->with('success', 'Register successfully');
+
+        event(new Registered($user));
+
+        return redirect()->route('login')->with('success', 'You have been registered successfully!');
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $data = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|string',
-        ]);
+        $data = $request->validated();
         if (auth()->attempt($data)) {
+            if (!auth()->user()->hasVerifiedEmail()) {
+                auth()->logout();
+                return back()->with('error', 'You need to verify your email address before logging in.');
+            }
             return redirect()->route('movies.index')->with('success', 'You have been logged in!');
         }
         return back()->with('error', 'Invalid credentials');
