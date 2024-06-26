@@ -4,6 +4,8 @@
             <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Laramovies</span>
         </a>
+
+        <!-- Dropdown menu -->
         <div class="flex items-center space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
             <button type="button"
                 class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -12,7 +14,6 @@
                 <span class="sr-only">Open user menu</span>
                 <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
             </button>
-            <!-- Dropdown menu -->
             @auth
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
                     id="user-dropdown">
@@ -41,16 +42,6 @@
                 </button>
             @endauth
 
-        </div>
-        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-            <ul
-                class="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                    <a href={{ route('home') }}
-                        class="block px-3 py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                        aria-current="page">Home</a>
-                </li>
-            </ul>
         </div>
     </div>
 </nav>
