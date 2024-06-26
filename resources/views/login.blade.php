@@ -32,5 +32,5 @@
         <button type="submit" class="submit">Submit</button>
     </form>
 
-    <a href={{ route('register') }} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Register</a>
+    <a href={{ route('register') }} class="link">Register</a>
 </x-guest-layout>
