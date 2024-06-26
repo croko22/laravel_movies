@@ -18,10 +18,10 @@
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
+<body>
     <x-navbar />
 
-    <main class="flex flex-col items-center justify-center min-h-screen gap-5 bg-gray-100 min-w-screen">
+    <main class="app-container">
         {{ $slot }}
     </main>
 </body>
