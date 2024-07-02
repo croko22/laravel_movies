@@ -8,7 +8,7 @@
     @endif
 
     <div class="grid grid-cols-1 gap-3 mt-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        @foreach ($movies as $movie)
+        @forelse ($movies as $movie)
             {{-- * MOVIE CARD --}}
             <div
                 class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -29,7 +29,11 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="w-full p-5 text-center text-gray-500 dark:text-gray-400">
+                No movies found.
+            </div>
+        @endforelse
     </div>
 
     <div class="mt-5">
